@@ -1,0 +1,191 @@
+.custom-navbar{
+    background-color: black !important;
+}
+
+.nav-link{
+    color: white !important;
+}
+
+.navbar-brand{
+    color: white !important;
+}
+
+.navbar-toggler{
+    background-color: white !important;
+}
+
+.buttons{
+    color: white;
+}
+
+.navbar-nav{
+    margin-left: 75px;
+}
+
+.text-colour{
+    color: white;
+}
+
+.main-img{
+    margin-right: 50px;
+    height: 430px;
+    width: 430px;
+}
+
+.bg-container {
+    background: linear-gradient(329deg, #1b98e0, #6cd4ff, #0496ff, #4bb3fd, #454ade, #5448C8, #090446, #111D4A);
+    background-size: 1200% 1200%;
+
+    -webkit-animation: AnimationName 15s ease infinite;
+    -moz-animation: AnimationName 15s ease infinite;
+    animation: AnimationName 15s ease infinite;
+}
+
+@-webkit-keyframes AnimationName {
+    0%{background-position:58% 0%}
+    50%{background-position:43% 100%}
+    100%{background-position:58% 0%}
+}
+@-moz-keyframes AnimationName {
+    0%{background-position:58% 0%}
+    50%{background-position:43% 100%}
+    100%{background-position:58% 0%}
+}
+@keyframes AnimationName {
+    0%{background-position:58% 0%}
+    50%{background-position:43% 100%}
+    100%{background-position:58% 0%}
+}
+
+.icon-square {
+    width: 3rem;
+    height: 3rem;
+    border-radius: .75rem;
+    background: linear-gradient(329deg, #1b98e0, #6cd4ff, #0496ff, #4bb3fd, #454ade, #090446);
+    background-size: 1200% 1200%;
+
+    -webkit-animation: AnimationName 15s ease infinite;
+    -moz-animation: AnimationName 15s ease infinite;
+    animation: AnimationName 15s ease infinite;
+}
+
+.bg-gradient {
+    background-image: var(--bs-gradient) !important;
+}
+
+.custom-container{
+    background-color: white !important;
+}
+
+.footer-container{
+    background-color: black;
+}
+
+.custom-container-fluid{
+    background: linear-gradient(329deg, #1b98e0, #6cd4ff, #0496ff, #4bb3fd, #454ade, #090446);
+    background-size: 1200% 1200%;
+
+    -webkit-animation: AnimationName 15s ease infinite;
+    -moz-animation: AnimationName 15s ease infinite;
+    animation: AnimationName 15s ease infinite;
+}
+
+.col h5{
+    color: white;
+}
+
+.text-logo{
+    color: white !important;
+}
+
+.custom-container{
+    background-color: black !important;
+}
+
+.custom-text-center{
+    width: 350px;
+    justify-content: center;
+}
+
+.custom-bg{
+    background-color: white !important;
+}
+
+.register-contsiner{
+    color: white;
+}
+
+.sidebar{
+    background: linear-gradient(329deg, #1b98e0, #6cd4ff, #0496ff, #4bb3fd, #454ade, #090446);
+    background-size: 1200% 1200%;
+
+    -webkit-animation: AnimationName 15s ease infinite;
+    -moz-animation: AnimationName 15s ease infinite;
+    animation: AnimationName 15s ease infinite;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 300px;
+    z-index: 1000; /* Якщо ви хочете, щоб меню було поверх іншого контенту */
+    overflow-y: auto; /* Дозволяє прокручувати бокове меню, якщо воно довше вмісту */
+    padding: 20px;
+}
+
+.title{
+    color: white;
+}
+
+.item{
+    font-size: 18px;
+}
+
+.main-container {
+    display: flex;
+}
+
+.sidebar {
+    width: 300px;
+}
+
+.content {
+    flex-grow: 1;
+    margin-left: 20px;
+}
+
+#user-info h2{
+    margin-bottom: 20px;
+}
+
+.personal-data{
+    font-size: 1.2rem;
+}
+
+.personal-data .btn{
+    font-size: 1.2rem;
+    margin-top: 20px;
+}
+
+.form-item{
+    color: white;
+    font-size: 1.25rem;
+}
+
+.custom-content{
+    padding-left: 320px;
+}
+
+.card h5{
+    color: black;
+    
+}
+
+.card-body{
+    border: linear-gradient(329deg, #1b98e0, #6cd4ff, #0496ff, #4bb3fd, #454ade, #090446);
+    background-size: 1200% 1200%;
+
+    -webkit-animation: AnimationName 15s ease infinite;
+    -moz-animation: AnimationName 15s ease infinite;
+    animation: AnimationName 15s ease infinite;;
+}

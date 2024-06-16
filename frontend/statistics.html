@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Статистика</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<body>
+  <nav class="custom-navbar navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="./index.html"> <img src="./images/Truck_icon_white.png" height="35px"
+          alt="Truck icon" /> Border Logistic</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="./index.html">Головна</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./queueRegistration.html">Стати в чергу</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./statistics.html">Статистика</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#footer">Контакти</a>
+          </li>
+
+        </ul>
+        <div class="col-md-3 text-end buttons">
+          <a href="./registration.html" class="btn btn-outline-light me-2">Зареєструватись</a>
+          <a href="./authorization.html" class="btn btn-light">Увійти</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+
+  <div class="greetings container">
+    <div class="pb-3 pt-0 text-center rounded-3 mt-0">
+      <img src="./images/truck_icon.png" alt="truck_icon" height="100px">
+      <h1 class="text-body-emphasis">Статистика</h1>
+      <p class="col-lg-8 mx-auto fs-5">
+        Переглядайте статистику та зручно плануйте поїздку з Border Logistic
+      </p>
+    </div>
+  </div>
+  <div class="container my-4">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" id="statistics-cards">
+    </div>
+  </div>
+  <div id="statistics-cards">
+
+  </div>
+  <div id="checkpoint-statistics">
+
+  </div>
+
+
+
+  <div class="custom-container container-fluid" id="footer">
+    <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top mb-0 mt-0">
+      <div class="col-md-4 d-flex align-items-center">
+        <a href="/" class="me-2 mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1 mb-3">
+          <img src="./images/Truck_icon_white.png" alt="Truck icon" height="50px">
+        </a>
+        <span class="text-logo mb-3 mb-md-0 text-body-emphasis">© 2024 Border Logistic</span>
+      </div>
+
+      <div class="col mb-3 ms-auto">
+        <h5>Опції</h5>
+        <ul class="nav flex-column">
+          <li class="nav-item mb-2"><a href="./index.html" class="nav-link p-0 text-body-secondary">Головна</a></li>
+          <li class="nav-item mb-2"><a href="./queueRegistration.html" class="nav-link p-0 text-body-secondary">Стати в
+              чергу</a>
+          </li>
+          <li class="nav-item mb-2"><a href="./statistics.html" class="nav-link p-0 text-body-secondary">Статистика</a></li>
+        </ul>
+      </div>
+
+      <div class="col mb-3">
+        <h5>Контакти</h5>
+        <ul class="nav flex-column">
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">м. Чернігів, вул.
+              Шевченка 95</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">borderlogistic1@gmail.com</a>
+          </li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">+380991234567</a>
+          </li>
+        </ul>
+      </div>
+    </footer>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <script>
+    const formatWaitingTime = (totalMinutes) => {
+      if (typeof totalMinutes !== 'number' || isNaN(totalMinutes)) {
+        return 'Невідомий час очікування';
+      }
+
+      const days = Math.floor(totalMinutes / 1440);
+      const hours = Math.floor((totalMinutes % 1440) / 60);
+      const minutes = totalMinutes % 60;
+
+      let formattedTime = '';
+      if (days > 0) {
+        formattedTime += `${days} днів, `;
+      }
+      if (hours > 0) {
+        formattedTime += `${hours} годин, `;
+      }
+      formattedTime += `${minutes} хвилин`;
+
+      return formattedTime;
+    };
+
+    fetch('http://localhost:5000/api/statistics/statistics')
+      .then(response => response.json())
+      .then(data => {
+        const statisticsCardsContainer = document.getElementById('statistics-cards');
+        const overallStatisticsHtml = `
+                <div class="col">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Загальна статистика</h5>
+                            <p class="card-text">Кількість авто у черзі: ${data.totalVehicles}</p>
+                            <p class="card-text">Загальний час очікування: ${formatWaitingTime(data.totalWaitingTime)}</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+        statisticsCardsContainer.innerHTML = overallStatisticsHtml;
+        if (data.checkpointStatistics) {
+          data.checkpointStatistics.forEach(stat => {
+            const checkpointCardHtml = `
+                        <div class="col">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">${stat.checkpointCountry} - ${stat.checkpointName}</h5>
+                                    <p class="card-text">Кількість авто у черзі: ${stat.totalVehicles}</p>
+                                    <p class="card-text">Загальний час очікування: ${formatWaitingTime(stat.totalWaitingTime)}</p>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+            statisticsCardsContainer.innerHTML += checkpointCardHtml;
+          });
+        } else {
+          console.error('checkpointStatistics is undefined');
+        }
+      })
+      .catch(error => console.error('Помилка отримання статистики:', error));
+  </script>
+</body>
+
+</html>

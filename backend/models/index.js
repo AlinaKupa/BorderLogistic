@@ -1,4 +1,3 @@
-// models/index.js
 const Priority = require('./Priority');
 const Queue = require('./Queue');
 const User = require('./User');
